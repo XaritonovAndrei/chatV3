@@ -19,7 +19,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         // addEndpoint - эндпоинт для самого чата, порт 8080
         // setAllowedOrigins - для фронтэнда
         // withSockJS - для тех клиентов, которые не поддерживают вебсокет
-        registry.addEndpoint("/chat").setAllowedOrigins("http://localhost:5173").withSockJS();
+        registry.addEndpoint("/chat").setAllowedOrigins("http://localhost:8080").withSockJS();
     }
 
     @Override

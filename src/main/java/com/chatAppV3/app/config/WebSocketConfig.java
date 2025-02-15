@@ -19,13 +19,16 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         // addEndpoint - эндпоинт для самого чата, порт 8080
         // setAllowedOrigins - для фронтэнда
         // withSockJS - для тех клиентов, которые не поддерживают вебсокет
-        registry.addEndpoint("/chat").setAllowedOrigins("http://localhost:8080").withSockJS();
+        registry.addEndpoint("/chat")
+                .setAllowedOrigins("http://localhost:8080")
+                .withSockJS();
     }
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        // enableSimpleBroker - включает брокер, далее url /broker/chatRoom1 и т.п.
-        // сообщения ожидаются с /app/sendmessage
+        // enableSimpleBroker - включает брокер, далее url /broker/chatRoom1 и т.п. броадкастит всем клиентам,
+//                которые на него подписаны
+        // сообщения ожидаются с /app/sendMessage
         // setApplicationDestinationPrefixes - указание обрабатывать сообщения с префиксом /app
         registry.enableSimpleBroker("/broker");
         registry.setApplicationDestinationPrefixes("/app");
